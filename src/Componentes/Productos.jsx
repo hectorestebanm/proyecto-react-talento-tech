@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import Header from "./Header"
 import Footer from "./Footer"
 import Boton from "./Boton"
@@ -35,7 +36,7 @@ const Productos = ({agregarProducto}) =>
                 {
                     productos.map((producto) =>
                     (
-                        <li key={producto.id}>{producto.title} - ${producto.price} <img src = {producto.image} alt="Imagen" width={80} height={80}/> <button onClick = {() => agregarProducto(producto)}>Agregar</button>
+                        <li key={producto.id}>{producto.title} - ${producto.price} <img src = {producto.image} alt="Imagen" width={80} height={80}/> <button onClick = {() => agregarProducto(producto)}>Agregar</button> <Link to = {`/productos/${producto.id}`}>Detalles</Link>
                         </li>
                     ))
                 }
