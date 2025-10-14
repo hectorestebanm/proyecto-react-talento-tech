@@ -4,7 +4,7 @@ const Carrito = ({productosEnCarrito, productosEliminados}) =>
 {
     return(
         <div>
-            <h2>Lista del Carrito</h2>
+            <h2 className={styles.h2}>Lista del Carrito</h2>
             <ul className={styles.lista}>
             {
                 productosEnCarrito.map((producto, indice) =>
