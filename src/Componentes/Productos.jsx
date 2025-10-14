@@ -1,3 +1,4 @@
+import styles from '../ModuleCSS/Productos.module.css'
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import Header from "./Header"
@@ -30,13 +31,13 @@ const Productos = ({agregarProducto}) =>
     if(error)
         return <p>{error}</p>
     return(
-        <div>
+        <div className={styles.div}>
             <h2>Lista de Productos</h2>
-            <ul>
+            <ul className={styles.lista}>
                 {
                     productos.map((producto) =>
                     (
-                        <li key={producto.id}>{producto.title} - ${producto.price} <img src = {producto.image} alt="Imagen" width={80} height={80}/> <button onClick = {() => agregarProducto(producto)}>Agregar</button> <Link to = {`/productos/${producto.id}`}>Detalles</Link>
+                        <li className={styles.li} key={producto.id}>{producto.title} - ${producto.price} <img src = {producto.image} alt="Imagen" width={70} height={70}/> <button className={styles.agregar} onClick = {() => agregarProducto(producto)}>Agregar</button> <Link className={styles.link} to = {`/productos/${producto.id}`}>Detalles</Link>
                         </li>
                     ))
                 }
