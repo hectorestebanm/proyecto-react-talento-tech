@@ -1,3 +1,4 @@
+import styles from '../ModuleCSS/Navbar.module.css'
 import { useContext, useState } from 'react';
 import Navbar from './Navbar';
 import { FaCartShopping } from "react-icons/fa6";
@@ -29,11 +30,11 @@ const Header = () =>
 
     return(
     <>
-        <header className="flex justify-between items-center px-10 border-b border-gray-200 relative z-50 py-3">
+        <header className="container d-flex justify-content-evenly align-items-center">
 
             {/* Seccion Izquierda: Logo */}
-            <div className="xl:text-[40px] sm:text-[30px] text-[30px] font-bold text-[#333] font-['Pirata_One']">
-                <Link to="/">
+            <div className="">
+                <Link to="/" className="text-decoration-none fw-bold fs-3 text-dark-emphasis">
                     Factory Tech
                 </Link>
             </div>
@@ -43,7 +44,7 @@ const Header = () =>
                 <Navbar />
             </div>
             {/* Seccion Derecha: Iconos */}
-            <div className="flex items-center gap-3 md:gap-4">
+            <div className="d-flex">
             {
                 estaLogeado ?
                 (
@@ -76,7 +77,7 @@ const Header = () =>
                     ) : 
                     (
                     <Link to="/login" className="hidden md:block">
-                        <button className="flex justify-center rounded-md border border-white bg-black px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#333] transition-colors duration-200">
+                        <button className={styles.ingresa}>
                             Ingresá
                         </button>
                     </Link>

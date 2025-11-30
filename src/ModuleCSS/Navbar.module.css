@@ -44,3 +44,16 @@
 {
     color: #282c34;
 }
+
+.ingresa
+{
+    color: white;
+    background-color: #052c65;
+    border-radius: 10px;
+    width: 100px;
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 700;
+    font-family: Sans-Serif;
+    text-align: center;
+}
