@@ -10,10 +10,10 @@ const USUARIOS_FAKE = [
   },
   { 
     id: 2, 
-    usuario: 'maria', 
+    usuario: 'hector', 
     contrasenia: '1234', 
     rol: 'usuario',
-    nombre: 'Maria'
+    nombre: 'Héctor'
   }
 ];
 

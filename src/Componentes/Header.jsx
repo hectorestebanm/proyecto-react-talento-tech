@@ -30,7 +30,8 @@ const Header = () =>
 
     return(
     <>
-        <header className="container d-flex justify-content-evenly align-items-center">
+        <header className="container d-flex justify-content-evenly mb-5 p-3">
+        {/* <header className="container d-flex justify-content-evenly align-items-center"> */}
 
             {/* Seccion Izquierda: Logo */}
             <div className="">
@@ -40,11 +41,11 @@ const Header = () =>
             </div>
 
             {/* Seccion Central: Componente NavBar - Desktop */}
-            <div className="hidden md:block">
+            <div className="d-flex align-items-center">
                 <Navbar />
             </div>
             {/* Seccion Derecha: Iconos */}
-            <div className="d-flex">
+            <div className="d-flex align-items-center gap-3">
             {
                 estaLogeado ?
                 (
@@ -55,13 +56,13 @@ const Header = () =>
                             (
                                 <Link 
                                     to="/admin" 
-                                    className="hidden md:inline text-sm font-medium text-[#333] hover:underline transition-all duration-200 cursor-pointer"
+                                    className="text-decoration-none fw-bold text-dark-emphasis"
                                 >
                                     Hola, {usuario.nombre}
                                 </Link>
                             ) : 
                             (
-                                <span className="hidden md:inline text-sm font-medium text-[#333]">
+                                <span className="fw-bold">
                                     Hola, {usuario.nombre}
                                 </span>
                             )
@@ -69,14 +70,14 @@ const Header = () =>
               
                         <button 
                             onClick={logout} 
-                            className="hidden md:flex justify-center rounded-md border border-white bg-black px-3 py-1.5 text-sm font-semibold text-white hover:bg-[#333] transition-colors duration-200"
+                            className={styles.cerrar}
                         >
                             Cerrar Sesión
                         </button>
                     </>
                     ) : 
                     (
-                    <Link to="/login" className="hidden md:block">
+                    <Link to="/login" className="">
                         <button className={styles.ingresa}>
                             Ingresá
                         </button>
@@ -91,7 +92,7 @@ const Header = () =>
                         {
                             contadorEnCarrito > 0 &&
                             (
-                                <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                                <span className="">
                                     {contadorEnCarrito}
                                 </span>
                             )
