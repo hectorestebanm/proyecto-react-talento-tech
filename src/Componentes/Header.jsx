@@ -86,13 +86,13 @@ const Header = () =>
                 }
           
                 {/* Icono del carrito */}
-                <div className="relative">
-                    <Link to="/carrito">
-                        <FaCartShopping />
+                <div className="">
+                    <Link to="/carrito" className="text-decoration-none">
+                        <FaCartShopping className={styles.logo}/>
                         {
                             contadorEnCarrito > 0 &&
                             (
-                                <span className="">
+                                <span className="fs-7 bg-danger text-white rounded-circle px-2 py-1">
                                     {contadorEnCarrito}
                                 </span>
                             )

@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { FaCartShopping } from "react-icons/fa6";
 import styles from '../ModuleCSS/Productos.module.css'
 import { CarritoContext } from '../context/CarritoContext'
 
@@ -8,10 +9,11 @@ const Carrito = () =>
     if (carrito.length === 0)
     {
         return(
-            <div className="min-h-[60vh] flex flex-col items-center justify-center px-4">
-                <div className="text-center">
-                    <h2 className="text-2xl font-bold text-gray-900 mb-2">Tu carrito está vacío</h2>
-                    <p className="text-gray-600 mb-6">¡Agregá productos para comenzar tu compra!</p>
+            <div className="d-flex justify-content-center align-items-center">
+                <div className="text-center mb-5">
+                    <FaCartShopping className={styles.vacio} />
+                    <h2 className="fw-bold text-dark-emphasis mb-4">Tu carrito está vacío</h2>
+                    <p className="fw-bold text-dark-emphasis mb-5">¡Agregá productos para comenzar tu compra!</p>
                     <a href="/" className={styles.login}>
                         Ir a comprar
                     </a>

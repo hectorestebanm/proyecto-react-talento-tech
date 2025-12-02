@@ -96,3 +96,11 @@
     font-family: Sans-Serif;
     text-align: center;
 }
+
+.vacio
+{
+    width: 100px;
+    height: 100px;
+    color: grey;
+    margin-bottom: 40px;
+}
