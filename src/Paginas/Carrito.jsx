@@ -9,7 +9,7 @@ const Carrito = () =>
     if (carrito.length === 0)
     {
         return(
-            <div className="d-flex justify-content-center align-items-center">
+            <div className="d-flex justify-content-center align-items-center w-100 h-100">
                 <div className="text-center mb-5">
                     <FaCartShopping className={styles.vacio} />
                     <h2 className="fw-bold text-dark-emphasis mb-4">Tu carrito está vacío</h2>

@@ -15,29 +15,31 @@ import RutaProtegida from './Componentes/RutaProtegida'
 function App()
 {
     return(
-        <div>
+        <div className="d-flex flex-column min-vh-100">
             <Header />
-            <Routes>
-                <Route path = '/' element = {<Inicio />}/>
-                <Route path = '/productos' element = {<Productos />}/>
-                <Route path = '/login' element = {<Login />}/>
-                <Route path = '/sobreNosotros' element = {<SobreNosotros />}/>
-                <Route path = '/contacto' element = {<Contacto />}/>
-                <Route path = '/busqueda' element = {<ResultadosBusqueda />}/>
-                <Route path = '/productos/:id' element = {<ProductoDetalle />}/>
-                <Route path = '/carrito' element =
-                {
-                    <RutaProtegida>
-                        <Carrito />
-                    </RutaProtegida>
-                }/>
-                <Route path = '/admin' element =
-                {
-                    <RutaProtegida>
-                        <Admin />
-                    </RutaProtegida>
-                }/>
-            </Routes>
+            <div className="flex-fill d-flex">
+                <Routes>
+                    <Route path = '/' element = {<Inicio />}/>
+                    <Route path = '/productos' element = {<Productos />}/>
+                    <Route path = '/login' element = {<Login />}/>
+                    <Route path = '/sobreNosotros' element = {<SobreNosotros />}/>
+                    <Route path = '/contacto' element = {<Contacto />}/>
+                    <Route path = '/busqueda' element = {<ResultadosBusqueda />}/>
+                    <Route path = '/productos/:id' element = {<ProductoDetalle />}/>
+                    <Route path = '/carrito' element =
+                    {
+                        <RutaProtegida>
+                            <Carrito />
+                        </RutaProtegida>
+                    }/>
+                    <Route path = '/admin' element =
+                    {
+                        <RutaProtegida>
+                            <Admin />
+                        </RutaProtegida>
+                    }/>
+                </Routes>
+            </div>
             <Footer />
         </div>
     )
