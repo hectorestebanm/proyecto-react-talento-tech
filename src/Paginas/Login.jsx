@@ -27,7 +27,7 @@ const Login = () =>
 
     return(
     <>
-        <div className="container p-5">
+        <div className="container p-4">
             <div className="mb-5">
                 <h2 className="text-center text-primary-emphasis">
                     Iniciar Sesión

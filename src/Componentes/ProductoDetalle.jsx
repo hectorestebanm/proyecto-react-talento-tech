@@ -1,3 +1,4 @@
+import styles from '../ModuleCSS/ProductoDetalle.module.css'
 import { useContext, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useProductosContext } from "../context/ProductosContext";
@@ -22,7 +23,7 @@ const ProductoDetalle = () =>
             agregarAlCarrito(producto);
         }
         setAgregado(true);
-        setTimeout(() => setAgregado(false), 2000);
+        setTimeout(() => setAgregado(false), 1500);
     };
 
     const incrementarCantidad = () =>
@@ -94,26 +95,22 @@ const ProductoDetalle = () =>
     }
 
     return(
-        <div className=""> 
+        <div className="container"> 
             {/* Contenido Principal */}
-            <div className="row d-flex justify-content-center">
+            <div className="row d-flex justify-content-center mb-5">
                 {/* Columna Izquierda la de Imagen */}
                 <div className="col-4">
-                    <div className="">
-                        <div className="">
-                            <img 
-                                src={producto.imagen} 
-                                alt={producto.nombre}
-                                className=""
-                            />
-                        </div>
-                    </div>
+                    <img 
+                        src={producto.imagen} 
+                        alt={producto.nombre}
+                        className={styles.ventanaImagen}
+                    />
                 </div>
 
                 {/* Columna Derecha la de Info de producto */}
                 <div className="col-4">
                     <div className="">
-                        <h1 className="">
+                        <h1 className="text-dark-emphasis">
                             {producto.nombre}
                         </h1>
             
@@ -129,15 +126,15 @@ const ProductoDetalle = () =>
 
                         {/* Precio */}
                         <div className="">
-                            <p className="">
+                            <p className="fs-2 fw-bold text-dark-emphasis">
                                 ${producto.precio?.toLocaleString('es-AR')}
                             </p>
                         </div>
 
                         {/* Descripción */}
                         <div className="">
-                            <h2 className="">Descripción</h2>
-                            <p className="">
+                            <h3 className="fw-bold">Descripción</h3>
+                            <p className="text-dark-emphasis mb-4">
                                 {producto.descripcion || "Este producto de alta calidad está diseñado para satisfacer tus necesidades. Fabricado con los mejores materiales y con atención al detalle."}
                             </p>
                         </div>
@@ -151,21 +148,19 @@ const ProductoDetalle = () =>
                                 onClick={handleAgregarAlCarrito}
                                 className=
                                 {
-                                    `flex-1 py-4 px-6 rounded-md font-semibold text-white transition-all duration-200 ${
-                                    agregado 
-                                    ? 'bg-green-600 hover:bg-green-700' 
-                                    : 'bg-black hover:bg-gray-800'
-                                    }`
+                                        agregado 
+                                        ? styles.agregarCarrito 
+                                        : styles.agregarCarrito
                                 }
                             >
                             {
                                 agregado ?
                                 (
                                     <span className="flex items-center justify-center">
-                                        <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        {/* <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                                             <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                                        </svg>
-                                        ¡Agregado al carrito!
+                                        </svg> */}
+                                        ¡Agregado!
                                     </span>
                                 ) :
                                 (
@@ -176,7 +171,7 @@ const ProductoDetalle = () =>
               
                             <button 
                                 onClick={() => navigate('/carrito')}
-                                className="sm:w-auto py-4 px-6 border-2 border-black text-black rounded-md font-semibold hover:bg-black hover:text-white transition-colors duration-200"
+                                className={styles.verCarrito}
                             >
                                 Ver Carrito
                             </button>
@@ -186,18 +181,6 @@ const ProductoDetalle = () =>
                 </div>
             </div>
 
-            {/* Boton volver en celular */}
-            <div className="mt-8 lg:hidden">
-                <button 
-                    onClick={() => navigate(-1)}
-                    className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
-                >
-                    <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
-                    Volver
-                </button>
-            </div>
         </div>
     );
 };

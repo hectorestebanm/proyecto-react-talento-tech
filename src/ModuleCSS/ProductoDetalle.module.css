@@ -17,3 +17,39 @@
 {
     margin-bottom: 10px;
 }
+
+.ventanaImagen
+{
+    width: 250px;
+    height: 250px;
+}
+
+.agregarCarrito
+{
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    width: 165px;
+    text-decoration: none;
+    margin-right: 5px;
+    padding: 10px;
+    font-weight: 700;
+    font-family: Sans-Serif;
+    text-align: center;
+
+}
+
+.verCarrito
+{
+    color: white;
+    background-color: #052c65;
+    border-radius: 10px;
+    width: 130px;
+    text-decoration: none;
+    margin-left: 5px;
+    padding: 10px;
+    font-weight: 700;
+    font-family: Sans-Serif;
+    text-align: center;
+
+}
