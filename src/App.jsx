@@ -17,7 +17,7 @@ function App()
     return(
         <div className="d-flex flex-column min-vh-100">
             <Header />
-            <div className="flex-fill d-flex">
+            <div className="flex-fill d-flex justify-content-center">
                 <Routes>
                     <Route path = '/' element = {<Inicio />}/>
                     <Route path = '/productos' element = {<Productos />}/>
