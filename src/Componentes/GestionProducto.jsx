@@ -1,10 +1,9 @@
 import styles from '../ModuleCSS/Productos.module.css'
+import { MdEdit } from "react-icons/md";
+import { FaRegTrashCan } from "react-icons/fa6";
 import { useState } from "react";
 import FormProducto from "./FormProducto";
 import { useProductosContext } from "../context/ProductosContext";
-// import CirclePlus from "../assets/CirclePlus";
-// import SquarePen from "../assets/SquarePen";
-// import TrashIcon from "../assets/TrashIcon";
 
 const GestionProductos = () =>
 {
@@ -53,16 +52,15 @@ const GestionProductos = () =>
     };
 
     return(
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="">
             {/* Header */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
-                <h2 className="text-3xl font-bold text-gray-900">Lista de Productos</h2>
+            <div className="d-flex flex-column justify-content-center align-items-center">
+                <h2 className="text-dark-emphasis mb-4">Lista de Productos</h2>
                 <button
                     onClick={abrirFormularioAgregar}
-                    className="flex items-center justify-center gap-2 px-6 py-3 rounded-md font-semibold transition-colors duration-200"
+                    className={styles.agregarAdmin}
                 >
-                    {/* <CirclePlus className="w-5 h-5" /> */}
-                    <span>Agregar Producto</span>
+                    <span className="fw-bold">Agregar Producto</span>
                 </button>
             </div>
 
@@ -75,17 +73,17 @@ const GestionProductos = () =>
                     </div>
                 ) :
                 (
-                    <div className="space-y-4">
+                    <div className="">
                         {
                             productos.map((producto) =>
                             (
                                 <div
                                     key={producto.id}
-                                    className="bg-white border border-gray-200 rounded-lg p-4 sm:p-6 hover:shadow-md transition-shadow duration-200"
+                                    className="border border-gray-200 rounded p-3 my-3"
                                 >
-                                    <div className="flex flex-col sm:flex-row gap-4 items-start">
+                                    <div className="d-flex gap-4">
                                     {/* Imagen del producto */}
-                                        <div className="flex-shrink-0 w-full sm:w-32">
+                                        <div className="">
                                             <img 
                                                 src={producto.imagen} 
                                                 alt={producto.nombre}
@@ -97,28 +95,28 @@ const GestionProductos = () =>
                                         {/* Información del producto */}
                                         <div className="grow flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 w-full">
                                             <div className=" flex grow">
-                                                <h3 className="text-lg font-semibold text-gray-900 mb-1">
+                                                <h3 className="text-dark-emphasis">
                                                     {producto.nombre}
                                                 </h3>
-                                                <p className="text-2xl font-bold text-gray-900">
+                                                <p className="fw-bold text-dark-emphasis">
                                                     ${producto.precio?.toLocaleString('es-AR')}
                                                 </p>
                                             </div>
 
                                             {/* Botones de editar y eliminar */}
-                                            <div className="flex gap-3 sm:shrink-0">
+                                            <div className="d-flex gap-2">
                                                 <button
                                                     onClick={() => abrirFormularioEditar(producto)}
-                                                    className="flex items-center justify-center gap-2 bg-gray-900 text-white px-4 py-2 rounded-md font-medium hover:bg-gray-800 transition-colors duration-200"
+                                                    className={styles.editarAdmin}
                                                 >
-                                                    {/* <SquarePen className="w-4 h-4" /> */}
+                                                    <MdEdit className='me-2'/>
                                                     <span className="text-sm">Editar</span>
                                                 </button>
                                                 <button
                                                     onClick={() => confirmarEliminacion(producto)}
-                                                    className="flex items-center justify-center bg-red-50 text-red-600 px-3 py-2 rounded-md hover:bg-red-100 transition-colors duration-200"
+                                                    className={styles.eliminarAdmin}
                                                 >
-                                                    {/* <TrashIcon className="w-5 h-5" /> */}
+                                                    <FaRegTrashCan className='me-2'/>
                                                     <span className="text-sm">Eliminar</span>
                                                 </button>
                                             </div>

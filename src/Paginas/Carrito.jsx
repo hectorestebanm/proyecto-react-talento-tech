@@ -1,4 +1,5 @@
 import { useContext } from 'react'
+import { FaRegTrashCan } from "react-icons/fa6";
 import { FaCartShopping } from "react-icons/fa6";
 import styles from '../ModuleCSS/Productos.module.css'
 import { CarritoContext } from '../context/CarritoContext'
@@ -23,12 +24,15 @@ const Carrito = () =>
     }
     return(
         <div>
+         {/* <div className="d-flex flex-column justify-content-center align-items-center"> */}
             <h2 className={styles.h2}>Lista del Carrito</h2>
             <ul className={styles.lista}>
             {
                 carrito.map((producto, indice) =>
                 (
-                    <li className={styles.li} key={producto.indice}>{producto.nombre} - ${producto.precio} <img src = {producto.imagen} alt="Imagen" width={80} height={80}/> <button className={styles.eliminar} onClick={() => eliminarDelCarrito(indice)}>Eliminar</button></li>
+                    <li className={styles.li} key={producto.indice}>
+                        {producto.nombre} - ${producto.precio} <img src = {producto.imagen} alt="Imagen" width={80} height={80}/> <button className={styles.eliminar} onClick={() => eliminarDelCarrito(indice)}> <FaRegTrashCan className='me-2'/> Eliminar</button>
+                    </li>
                 ))
             }
             </ul>

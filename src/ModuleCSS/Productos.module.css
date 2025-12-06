@@ -26,7 +26,7 @@
 .li
 {
     margin: 15px 0;
-    border: 5px solid dodgerblue;
+    border: 4px solid #052c65;
     padding: 10px;
     border-radius: 10px;
 }
@@ -65,8 +65,10 @@
     color: white;
     background-color: red;
     text-decoration: none;
+    border-radius: 10px;
     margin: 0 12px;
-    padding: 12px;
+    width: 130px;
+    padding: 5px;
     font-weight: 700;
     font-family: Sans-Serif;
     text-align: center;
@@ -76,7 +78,7 @@
 {
     text-align: center;
     margin: 10px 0;
-    color: red;
+    color: #052c65;
 }
 
 .width
@@ -103,4 +105,46 @@
     height: 100px;
     color: grey;
     margin-bottom: 40px;
+}
+
+.agregarAdmin
+{
+    color: white;
+    background-color: #052c65;
+    border-radius: 10px;
+    width: 170px;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    font-family: Sans-Serif;
+    text-align: center;
+}
+
+.editarAdmin
+{
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    width: 120px;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: Sans-Serif;
+    text-align: center;
+}
+
+.eliminarAdmin
+{
+    color: white;
+    background-color: #052c65;
+    border-radius: 10px;
+    width: 130px;
+    text-decoration: none;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-family: Sans-Serif;
+    text-align: center;
 }
