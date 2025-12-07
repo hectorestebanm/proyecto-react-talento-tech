@@ -1,5 +1,6 @@
 import styles from '../ModuleCSS/Productos.module.css'
 import { MdEdit } from "react-icons/md";
+import { RiErrorWarningLine } from "react-icons/ri";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { useState } from "react";
 import FormProducto from "./FormProducto";
@@ -133,39 +134,39 @@ const GestionProductos = () =>
             {
                 productoAEliminar &&
                 (
-                    <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
-                        <div className="bg-white rounded-lg max-w-md w-full p-6 shadow-xl">
-                            <div className="flex items-center gap-4 mb-4">
-                                <div className="bg-red-100 p-3 rounded-full">
-                                    <svg className="w-6 h-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                                    </svg>
+                    <div className={styles.overlay}>
+                        <div className="border rounded bg-white">
+                            <div className={`p-4 ${styles.modal}`}>
+                                <div className="d-flex align-items-center justify-content-center">
+                                    <div className="w-25 h-25">
+                                        <RiErrorWarningLine className="w-50 h-50 text-danger"/>
+                                    </div>
+                                    <div>
+                                        <h3 className="text-dark-emphasis">Confirmar eliminación</h3>
+                                        <p className="text-dark-emphasis">Esta acción no se puede deshacer</p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <h3 className="text-lg font-semibold text-gray-900">Confirmar eliminación</h3>
-                                    <p className="text-sm text-gray-600 mt-1">Esta acción no se puede deshacer</p>
+                
+                                <div className="text-center">
+                                    <p className="text-dark-emphasis">
+                                        ¿Estás seguro que querés eliminar <span className="fw-bold">"{productoAEliminar.nombre}"</span>?
+                                    </p>
                                 </div>
-                            </div>
-            
-                            <div className="mb-6">
-                                <p className="text-gray-700">
-                                    ¿Estás seguro que querés eliminar <span className="font-semibold">"{productoAEliminar.nombre}"</span>?
-                                </p>
-                            </div>
 
-                            <div className="flex gap-3">
-                                <button
-                                    onClick={() => setProductoAEliminar(null)}
-                                    className="flex-1 px-4 py-2.5 border-2 border-gray-300 text-gray-700 rounded-md font-semibold hover:bg-gray-50 transition-colors duration-200"
-                                >
-                                    Cancelar
-                                </button>
-                                <button
-                                    onClick={handleEliminar}
-                                    className="flex-1 px-4 py-2.5 bg-red-600 text-white rounded-md font-semibold hover:bg-red-700 transition-colors duration-200"
-                                >
-                                    Eliminar
-                                </button>
+                                <div className="d-flex justify-content-center">
+                                    <button
+                                        onClick={() => setProductoAEliminar(null)}
+                                        className={styles.cancelar}
+                                    >
+                                        Cancelar
+                                    </button>
+                                    <button
+                                        onClick={handleEliminar}
+                                        className={styles.eliminar}
+                                    >
+                                        Eliminar
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>

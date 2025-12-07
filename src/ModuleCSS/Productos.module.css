@@ -148,3 +148,33 @@
     font-family: Sans-Serif;
     text-align: center;
 }
+
+.cancelar
+{
+    color: #052c65;
+    background-color: white;
+    text-decoration: none;
+    border-radius: 10px;
+    margin: 0 12px;
+    width: 130px;
+    padding: 5px;
+    font-weight: 700;
+    font-family: Sans-Serif;
+    text-align: center;
+}
+
+.overlay
+{
+    position: fixed;
+    inset: 0;                       /* top:0 left:0 right:0 bottom:0 */
+    background: rgba(0, 0, 0, 0.5); /* fondo opaco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1050;  
+}
+
+.modal
+{
+    width: 450px;
+}
