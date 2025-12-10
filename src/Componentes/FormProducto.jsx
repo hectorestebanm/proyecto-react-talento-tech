@@ -3,134 +3,141 @@ import { useProductosContext } from "../context/ProductosContext";
 // import styles from "./FormProducto.module.css";
 // import X from "../assets/X";
 
-const FormProducto = ({ productoInicial = {}, modo = "agregar", onCerrar }) => {
+const FormProducto = ({ productoInicial = {}, modo = "agregar", onCerrar }) =>
+{
   
-  const [producto, setProducto] = useState(productoInicial);
-  const { agregarProducto, editarProducto } = useProductosContext();
+    const [producto, setProducto] = useState(productoInicial);
+    const { agregarProducto, editarProducto } = useProductosContext();
 
-  const manejarChange = (evento) => {
-    const { name, value } = evento.target;
-    setProducto({ ...producto, [name]: value });
-  };
+    const manejarChange = (evento) =>
+    {
+        const { name, value } = evento.target;
+        setProducto({ ...producto, [name]: value });
+    };
 
-  const manejarSubmit = async (evento) => {
-    evento.preventDefault();
-    if (modo === "agregar") {
-      await agregarProducto(producto);
-    } else {
-      await editarProducto(producto);
-    }
-    onCerrar();
-  };
+    const manejarSubmit = async (evento) =>
+    {
+        evento.preventDefault();
+        if (modo === "agregar")
+        {
+            await agregarProducto(producto);
+        }
+        else
+        {
+            await editarProducto(producto);
+        }
+        onCerrar();
+    };
 
-  return (
-    <div 
-      // className={styles.modalOverlay}
-      aria-modal="true"
-      role="dialog"
-    >
-      <div>
-        {/* Contenido del Modal */}
-        <div>   
-          {/* Encabezado del Modal */}
-          <div>
-            <h3>
-              {modo === "agregar" ? "Agregar Producto" : "Editar Producto"}
-            </h3>
-            <button 
-              type="button" 
-              onClick={onCerrar}
-            >
-              {/* <X /> */}
-            </button>
-          </div>
-          {/* Cuerpo del Modal */}
-          <form onSubmit={manejarSubmit}>
+    return(
+        <div 
+            // className={styles.modalOverlay}
+            aria-modal="true"
+            role="dialog"
+        >
             <div>
-              {/* Campo Nombre */}
-              <div>
-                <label>
-                  Nombre
-                </label>
-                <input
-                  type="text"
-                  name="nombre"
-                  id="nombre"
-                  placeholder="Ingrese el nombre del producto"
-                  value={producto.nombre || ""}
-                  onChange={manejarChange}
-                  required
-                />
-              </div>
-              {/* Campo Precio */}
-              <div>
-                <label>
-                  Precio
-                </label>
-                <input
-                  type="number"
-                  name="precio"
-                  id="precio"
-                  placeholder="$0.00"
-                  value={producto.precio || ""}
-                  onChange={manejarChange}
-                  required
-                  min="0"
-                  step="any"
-                />
-              </div>
+                {/* Contenido del Modal */}
+                <div>   
+                    {/* Encabezado del Modal */}
+                    <div>
+                        <h3>
+                            {modo === "agregar" ? "Agregar Producto" : "Editar Producto"}
+                        </h3>
+                        <button 
+                            type="button" 
+                            onClick={onCerrar}
+                        >
+                            {/* <X /> */}
+                        </button>
+                    </div>
+                    {/* Cuerpo del Modal */}
+                    <form onSubmit={manejarSubmit}>
+                        <div>
+                            {/* Campo Nombre */}
+                            <div>
+                                <label>
+                                    Nombre
+                                </label>
+                                <input
+                                    type="text"
+                                    name="nombre"
+                                    id="nombre"
+                                    placeholder="Ingrese el nombre del producto"
+                                    value={producto.nombre || ""}
+                                    onChange={manejarChange}
+                                    required
+                                />
+                            </div>
+                            {/* Campo Precio */}
+                            <div>
+                                <label>
+                                    Precio
+                                </label>
+                                <input
+                                    type="number"
+                                    name="precio"
+                                    id="precio"
+                                    placeholder="$0.00"
+                                    value={producto.precio || ""}
+                                    onChange={manejarChange}
+                                    required
+                                    min="0"
+                                    step="any"
+                                />
+                            </div>
               
-              {/* Campo URL de Imagen */}
-              <div>
-                <label>
-                  URL de Imagen
-                </label>
-                <input
-                  type="text"
-                  name="imagen"
-                  id="imagen"
-                  placeholder="https://ejemplo.com/imagen.jpg"
-                  value={producto.imagen || ""}
-                  onChange={manejarChange}
-                />
-              </div>
-              {/* Campo Descripcion */}
-              <div>
-                <label>
-                  Descripción del Producto
-                </label>
-                <textarea
-                  id="descripcion"
-                  name="descripcion"
-                  rows="4"
-                  placeholder="Escriba la descripción del producto aquí"
-                  value={producto.descripcion || ""}
-                  onChange={manejarChange}
-                  required
-                ></textarea>
-              </div>
+                            {/* Campo URL de Imagen */}
+                            <div>
+                                <label>
+                                    URL de Imagen
+                                </label>
+                                <input
+                                    type="text"
+                                    name="imagen"
+                                    id="imagen"
+                                    placeholder="https://ejemplo.com/imagen.jpg"
+                                    value={producto.imagen || ""}
+                                    onChange={manejarChange}
+                                />
+                            </div>
+                            {/* Campo Descripcion */}
+                            <div>
+                                <label>
+                                    Descripción del Producto
+                                </label>
+                                <textarea
+                                    id="descripcion"
+                                    name="descripcion"
+                                    rows="4"
+                                    placeholder="Escriba la descripción del producto aquí"
+                                    value={producto.descripcion || ""}
+                                    onChange={manejarChange}
+                                    required
+                                >
+                                </textarea>
+                            </div>
+                        </div>
+                        {/* Botones de Accion */}
+                        <div>
+                            {/* Boton Primario */}
+                            <button 
+                                type="submit" 
+                            >
+                                {modo === "agregar" ? <>Agregar</> : <>Actualizar</>}
+                            </button>
+                            {/* Boton Secundario o de cancelar */}
+                            <button 
+                                type="button" 
+                                onClick={onCerrar}
+                            >
+                                Cancelar
+                            </button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            {/* Botones de Accion */}
-            <div>
-              {/* Boton Primario */}
-              <button 
-                type="submit" 
-              >
-                {modo === "agregar" ? <>Agregar</> : <>Actualizar</>}
-              </button>
-              {/* Boton Secundario o de cancelar */}
-              <button 
-                type="button" 
-                onClick={onCerrar}
-              >
-                Cancelar
-              </button>
-            </div>
-          </form>
         </div>
-      </div>
-    </div>
-  );
+    );
 }
 
 export default FormProducto;
