@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useProductosContext } from "../context/ProductosContext";
-// import styles from "./FormProducto.module.css";
+import { MdClose } from "react-icons/md";
+import styles from "../ModuleCSS/FormProducto.module.css";
 // import X from "../assets/X";
 
 const FormProducto = ({ productoInicial = {}, modo = "agregar", onCerrar }) =>
@@ -31,15 +32,13 @@ const FormProducto = ({ productoInicial = {}, modo = "agregar", onCerrar }) =>
 
     return(
         <div 
-            // className={styles.modalOverlay}
-            aria-modal="true"
-            role="dialog"
+            className={styles.overlay}
         >
-            <div>
+            <div className="border rounded bg-white">
                 {/* Contenido del Modal */}
-                <div>   
+                <div className={styles.modal}>   
                     {/* Encabezado del Modal */}
-                    <div>
+                    <div className="d-flex flex-rows justify-content-between align-items-center">
                         <h3>
                             {modo === "agregar" ? "Agregar Producto" : "Editar Producto"}
                         </h3>
@@ -47,14 +46,14 @@ const FormProducto = ({ productoInicial = {}, modo = "agregar", onCerrar }) =>
                             type="button" 
                             onClick={onCerrar}
                         >
-                            {/* <X /> */}
+                            <MdClose />
                         </button>
                     </div>
                     {/* Cuerpo del Modal */}
                     <form onSubmit={manejarSubmit}>
                         <div>
                             {/* Campo Nombre */}
-                            <div>
+                            <div className="d-flex flex-column">
                                 <label>
                                     Nombre
                                 </label>
@@ -69,7 +68,7 @@ const FormProducto = ({ productoInicial = {}, modo = "agregar", onCerrar }) =>
                                 />
                             </div>
                             {/* Campo Precio */}
-                            <div>
+                            <div className="d-flex flex-column">
                                 <label>
                                     Precio
                                 </label>
@@ -87,7 +86,7 @@ const FormProducto = ({ productoInicial = {}, modo = "agregar", onCerrar }) =>
                             </div>
               
                             {/* Campo URL de Imagen */}
-                            <div>
+                            <div className="d-flex flex-column">
                                 <label>
                                     URL de Imagen
                                 </label>
@@ -101,7 +100,7 @@ const FormProducto = ({ productoInicial = {}, modo = "agregar", onCerrar }) =>
                                 />
                             </div>
                             {/* Campo Descripcion */}
-                            <div>
+                            <div className="d-flex flex-column">
                                 <label>
                                     Descripción del Producto
                                 </label>
@@ -118,15 +117,17 @@ const FormProducto = ({ productoInicial = {}, modo = "agregar", onCerrar }) =>
                             </div>
                         </div>
                         {/* Botones de Accion */}
-                        <div>
+                        <div className="d-flex justify-content-center">
                             {/* Boton Primario */}
-                            <button 
+                            <button
+                                className={styles.formAceptar}
                                 type="submit" 
                             >
                                 {modo === "agregar" ? <>Agregar</> : <>Actualizar</>}
                             </button>
                             {/* Boton Secundario o de cancelar */}
                             <button 
+                                className={styles.formCancelar}
                                 type="button" 
                                 onClick={onCerrar}
                             >
