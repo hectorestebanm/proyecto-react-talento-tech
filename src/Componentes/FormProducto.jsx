@@ -31,12 +31,10 @@ const FormProducto = ({ productoInicial = {}, modo = "agregar", onCerrar }) =>
     };
 
     return(
-        <div 
-            className={styles.overlay}
-        >
-            <div className="border rounded bg-white">
+        <div className={styles.overlay}>
+            <div className={`border rounded bg-white ${styles.modal}`}>
                 {/* Contenido del Modal */}
-                <div className={styles.modal}>   
+                <div className={styles.formModal}>   
                     {/* Encabezado del Modal */}
                     <div className="d-flex flex-rows justify-content-between align-items-center">
                         <h3>
